@@ -1,16 +1,24 @@
 class Venue
 
-  attr_reader :name
+  attr_reader :name, :till
 
   def initialize(name, guest_list, room_list)
     @name = name
-    @guest_list = []
-    @room_list = room_list
+    @venue_guest_list = []
+    @room_list = []
     @till = 0
   end
 
   def guest_count()
-    return @guest_list.count()
+    return @venue_guest_list.count()
+  end
+
+  def room_count()
+    return @room_list.count()
+  end
+
+  def admit_guest(guest)
+    @venue_guest_list << guest
   end
 
 end

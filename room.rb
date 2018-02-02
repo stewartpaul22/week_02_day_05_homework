@@ -1,25 +1,25 @@
 class Room
 
-  attr_reader :name, :genre, :guest_list
+  attr_reader :name, :genre, :room_guest_list
 
-  def initialize(name, genre, guest_list, playlist)
+  def initialize(name, genre, room_guest_list, playlist)
     @name = name
     @genre = genre
-    @guest_list = []
+    @room_guest_list = []
     @playlist = []
     @guest_limit = 20
   end
 
   def guest_count()
-    return @guest_list.count()
+    return @room_guest_list.count()
   end
 
   def check_in(guest)
-     @guest_list << guest unless is_room_full()
+     @room_guest_list << guest unless is_room_full()
   end
 
   def check_out(guest)
-    @guest_list.delete(guest)
+    @room_guest_list.delete(guest)
   end
 
   def playlist_count()
@@ -31,7 +31,7 @@ class Room
   end
 
   def is_room_full()
-    return @guest_list.count() == @guest_limit
+    return @room_guest_list.count() == @guest_limit
   end
 
 end

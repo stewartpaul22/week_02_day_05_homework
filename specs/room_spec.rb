@@ -13,11 +13,11 @@ class TestRoom < MiniTest::Test
     @song3 = Song.new("One", "Metallica", "metal")
     @guest1 = Guest.new("Beavis", 50.00, @song1)
     @guest2 = Guest.new("Butthead", 40.00, @song2)
-    @guest_list1 = [@guest1, @guest2]
+    @room_guest_list1 = [@guest1, @guest2]
     @playlist = [@song1, @song2, @song3]
-    # room: name, genre, guest_list, playlist, guest_limit
-    @room1 = Room.new("Headbanger's Ball", "metal", @guest_list1, @playlist)
-    @room2 = Room.new("Motor City", "motown and soul", @guest_list1, @playlist)
+    # room: name, genre, room_guest_list, playlist, guest_limit
+    @room1 = Room.new("Headbanger's Ball", "metal", @room_guest_list1, @playlist)
+    @room2 = Room.new("Motor City", "motown and soul", @room_guest_list1, @playlist)
   end
   # 1
   def test_has_name
@@ -28,7 +28,7 @@ class TestRoom < MiniTest::Test
     assert_equal("metal", @room1.genre)
   end
   # 3
-  def test_has_guest_list
+  def test_has_room_guest_list
     assert_equal(0, @room1.guest_count())
   end
   # 4
@@ -57,14 +57,14 @@ class TestRoom < MiniTest::Test
     assert_equal(true, @room1.is_room_full())
   end
   # 9
-  def test_add_guest_to_another_room
-    # if a guest's chosen room is full, add cust to next room that is not full
-    20.times { @room1.check_in(@guest1)}
-    10.times { @room2.check_in(@guest1)}
-    #confirm guest's current location
-
-    assert_equal(@room2, #guest_current_location)
-
-  end
+  # def test_add_guest_to_another_room
+  #   # if a guest's chosen room is full, add cust to next room that is not full
+  #   20.times { @room1.check_in(@guest1)}
+  #   10.times { @room2.check_in(@guest1)}
+  #   #confirm guest's current location
+  #
+  #   assert_equal(@room2, #guest_current_location)
+  #
+  # end
 
 end

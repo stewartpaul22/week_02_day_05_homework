@@ -21,6 +21,19 @@ class TestVenue < MiniTest::Test
   def test_has_guest_list
     assert_equal(0, @venue.guest_count())
   end
+  # 3
+  def test_has_room_list
+    assert_equal(0, @venue.room_count())
+  end
+  # 4
+  def test_has_till
+    assert_equal(0, @venue.till())
+  end
+  # 5
+  def test_admit_guest_to_venue
+    @venue.admit_guest(@guest1)
+    assert_equal(1, @venue.guest_count())
+  end
 
 
 end
