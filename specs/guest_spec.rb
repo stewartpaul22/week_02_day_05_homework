@@ -11,17 +11,18 @@ class TestGuest < MiniTest::Test
     # guest: name, wallet, fav_song
     @guest1 = Guest.new("Paul", 50.00, @song1)
   end
-
+  # 1
   def test_has_name
     assert_equal("Paul", @guest1.name)
   end
-
+  # 2
   def test_has_wallet
     assert_equal(50.00, @guest1.wallet)
   end
-
+  # 3
   def test_has_favourite_song
-    assert_equal(@song1, @guest1.fav_song)
+    assert_equal("Paranoid", @guest1.fav_song.title)
+    puts @guest1.fav_song.title
   end
 
 end
