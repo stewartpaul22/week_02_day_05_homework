@@ -37,4 +37,8 @@ class Venue
     @till += amount
   end
 
+  def add_room_to_venue(room)
+    @room_list << room
+  end
+
 end

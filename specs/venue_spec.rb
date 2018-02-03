@@ -58,6 +58,7 @@ class TestVenue < MiniTest::Test
     # arrange
     @venue.admit_guest(@guest1)
     20.times {@room1.check_in(@guest1)}
+    10.times {@room1.check_in(@guest1)}
     # act
     @venue.send_guest_to_room(@guest1, @room1)
     # assert
@@ -75,6 +76,12 @@ class TestVenue < MiniTest::Test
     # assert
     assert_equal(45.00, @guest1.wallet)
     assert_equal(5.00, @venue.till)
+  end
+  # 10
+  def test_add_room_to_room_array
+    @venue.add_room_to_venue(@room1)
+    # assert
+    assert_equal(1, @venue.room_count())
   end
 
 end
