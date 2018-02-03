@@ -13,4 +13,8 @@ class Guest
     @wallet += amount
   end
 
+  def debit_funds_from_wallet(amount)
+    @wallet -= amount
+  end
+
 end

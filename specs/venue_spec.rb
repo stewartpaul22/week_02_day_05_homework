@@ -65,15 +65,16 @@ class TestVenue < MiniTest::Test
     assert_equal(20, @room1.guest_count())
   end
   # 9
-  # def test_take_entry_fee_from_guest
-  #   # arrange
-  #   @venue.admit_guest(@guest1)
-  #   @guest1.add_funds_to_wallet(50.00)
-  #   # act
-  #   entry_fee = @guest1.debit_funds_from_wallet(5.00)
-  #   @venue.add_funds_to_till
-  #   # assert
-  #
-  # end
+  def test_take_entry_fee_from_guest
+    # arrange
+    @venue.admit_guest(@guest1)
+    @guest1.add_funds_to_wallet(50.00)
+    # act
+    @guest1.debit_funds_from_wallet(@venue.entry_fee)
+    @venue.add_funds_to_till(@venue.entry_fee)
+    # assert
+    assert_equal(45.00, @guest1.wallet)
+    assert_equal(5.00, @venue.till)
+  end
 
 end

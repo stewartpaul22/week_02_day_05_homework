@@ -1,6 +1,6 @@
 class Venue
 
-  attr_reader :name, :till
+  attr_reader :name, :till, :entry_fee
 
   def initialize(name, guest_list, room_list)
     @name = name
@@ -31,6 +31,10 @@ class Venue
       remove_guest(guest)
       room.check_in(guest)
     end
+  end
+
+  def add_funds_to_till(amount)
+    @till += amount
   end
 
 end
