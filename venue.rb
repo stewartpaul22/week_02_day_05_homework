@@ -27,9 +27,16 @@ class Venue
   end
 
   def send_guest_to_room(guest, room)
-    unless room.is_room_full()
+    if !room.is_room_full()
       remove_guest(guest)
       room.check_in(guest)
+    else
+      for alt_room in @room_list
+        if !alt_room.is_room_full()
+          remove_guest(guest)
+          alt_room.check_in(guest)
+        end
+      end
     end
   end
 

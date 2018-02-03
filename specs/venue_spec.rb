@@ -54,16 +54,20 @@ class TestVenue < MiniTest::Test
     assert_equal(1, @room1.guest_count())
   end
   # 8
-  def test_allocate_guest_to_room__space_unavailable
+  def test_allocate_guest_to_alternative_room
     # arrange
+    @venue.add_room_to_venue(@room1)
+    @venue.add_room_to_venue(@room2)
     @venue.admit_guest(@guest1)
+    @venue.admit_guest(@guest2)
     20.times {@room1.check_in(@guest1)}
-    10.times {@room1.check_in(@guest1)}
+    10.times {@room2.check_in(@guest2)}
     # act
     @venue.send_guest_to_room(@guest1, @room1)
     # assert
     assert_equal(1, @venue.guest_count())
     assert_equal(20, @room1.guest_count())
+    assert_equal(11, @room2.guest_count())
   end
   # 9
   def test_take_entry_fee_from_guest
@@ -83,5 +87,5 @@ class TestVenue < MiniTest::Test
     # assert
     assert_equal(1, @venue.room_count())
   end
-
+  
 end
