@@ -11,6 +11,7 @@ class TestVenue < MiniTest::Test
     @guest2 = Guest.new("Butthead", 40.00, @song2)
     @room1 = Room.new("Headbanger's Ball", "metal", @guest_list1, @playlist)
     @room2 = Room.new("Motor City", "motown and soul", @guest_list1, @playlist)
+    @room3 = Room.new("CheeseFest", "pop", @guest_list1, @playlist)
     @venue = Venue.new("FAME OR SHAME", @guest_list, @room_list)
   end
   # 1
@@ -58,10 +59,12 @@ class TestVenue < MiniTest::Test
     # arrange
     @venue.add_room_to_venue(@room1)
     @venue.add_room_to_venue(@room2)
+    @venue.add_room_to_venue(@room3)
     @venue.admit_guest(@guest1)
     @venue.admit_guest(@guest2)
     20.times {@room1.check_in(@guest1)}
     10.times {@room2.check_in(@guest2)}
+    10.times {@room3.check_in(@guest2)}
     # act
     @venue.send_guest_to_room(@guest1, @room1)
     # assert
@@ -87,5 +90,5 @@ class TestVenue < MiniTest::Test
     # assert
     assert_equal(1, @venue.room_count())
   end
-  
+
 end
