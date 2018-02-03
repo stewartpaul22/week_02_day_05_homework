@@ -6,7 +6,7 @@ class Venue
     @name = name
     @venue_guest_list = []
     @room_list = []
-    @till = 0
+    @till = 0.00
   end
 
   def guest_count()

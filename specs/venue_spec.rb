@@ -53,7 +53,7 @@ class TestVenue < MiniTest::Test
     assert_equal(0, @venue.guest_count())
     assert_equal(1, @room1.guest_count())
   end
-
+  # 8
   def test_allocate_guest_to_room__space_unavailable
     # arrange
     @venue.admit_guest(@guest1)
@@ -64,6 +64,15 @@ class TestVenue < MiniTest::Test
     assert_equal(1, @venue.guest_count())
     assert_equal(20, @room1.guest_count())
   end
+  # 9
+  def test_take_entry_fee_from_guest
+    # arrange
+    @venue.admit_guest(@guest1)
+    @guest1.add_funds_to_wallet(50.00)
+    # act
+    
+    # assert
 
+  end
 
 end

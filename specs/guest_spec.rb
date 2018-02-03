@@ -16,12 +16,17 @@ class TestGuest < MiniTest::Test
   end
   # 2
   def test_has_wallet
-    assert_equal(50.00, @guest1.wallet)
+    assert_equal(0.00, @guest1.wallet)
   end
   # 3
   def test_has_favourite_song
     assert_equal("Paranoid", @guest1.fav_song.title)
-    puts @guest1.fav_song.title
+  end
+  # 4
+  def test_add_funds_to_guest_wallet
+    @guest1.add_funds_to_wallet(50.00)
+    assert_equal(50.00, @guest1.wallet)
+    puts @guest1.wallet
   end
 
   # def test_confirm_guest_location
