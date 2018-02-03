@@ -44,7 +44,7 @@ class TestVenue < MiniTest::Test
     assert_equal(0, @venue.guest_count())
   end
   #7
-  def test_allocate_guest_to_room
+  def test_allocate_guest_to_room__space_available
     # arrange
     @venue.admit_guest(@guest1)
     # act
@@ -52,6 +52,18 @@ class TestVenue < MiniTest::Test
     # assert
     assert_equal(0, @venue.guest_count())
     assert_equal(1, @room1.guest_count())
-    puts @room1.room_guest_list[0].name
   end
+
+  def test_allocate_guest_to_room__space_unavailable
+    # arrange
+    @venue.admit_guest(@guest1)
+    20.times {@room1.check_in(@guest1)}
+    # act
+    @venue.send_guest_to_room(@guest1, @room1)
+    # assert
+    assert_equal(1, @venue.guest_count())
+    assert_equal(20, @room1.guest_count())
+  end
+
+
 end

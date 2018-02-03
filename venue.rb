@@ -26,8 +26,10 @@ class Venue
   end
 
   def send_guest_to_room(guest, room)
-    remove_guest(guest)
-    room.check_in(guest)
+    unless room.is_room_full()
+      remove_guest(guest)
+      room.check_in(guest)
+    end
   end
 
 end
