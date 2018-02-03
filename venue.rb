@@ -7,6 +7,7 @@ class Venue
     @venue_guest_list = []
     @room_list = []
     @till = 0.00
+    @entry_fee = 5.00
   end
 
   def guest_count()
