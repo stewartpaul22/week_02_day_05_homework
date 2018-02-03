@@ -34,6 +34,24 @@ class TestVenue < MiniTest::Test
     @venue.admit_guest(@guest1)
     assert_equal(1, @venue.guest_count())
   end
-
-
+  # 6
+  def test_remove_guest_from_guest_list
+    # arrange
+    @venue.admit_guest(@guest1)
+    # act
+    @venue.remove_guest(@guest1)
+    # assert
+    assert_equal(0, @venue.guest_count())
+  end
+  #7
+  def test_allocate_guest_to_room
+    # arrange
+    @venue.admit_guest(@guest1)
+    # act
+    @venue.send_guest_to_room(@guest1, @room1)
+    # assert
+    assert_equal(0, @venue.guest_count())
+    assert_equal(1, @room1.guest_count())
+    puts @room1.room_guest_list[0].name
+  end
 end

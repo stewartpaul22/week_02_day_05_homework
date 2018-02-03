@@ -6,6 +6,7 @@ class Guest
     @name = name
     @wallet = wallet
     @fav_song = fav_song
+    ### add a property to confirm guest location ###
   end
 
 end

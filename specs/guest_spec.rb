@@ -24,8 +24,10 @@ class TestGuest < MiniTest::Test
     puts @guest1.fav_song.title
   end
 
-  def test_confirm_guest_location
-    assert_equal()
-  end
+  # def test_confirm_guest_location
+  #   assert_equal()
+  # end
+
+  ### add a test to check guest's location i.e. in a room or venue_guest_list ###
 
 end

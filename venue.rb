@@ -21,4 +21,13 @@ class Venue
     @venue_guest_list << guest
   end
 
+  def remove_guest(guest)
+    @venue_guest_list.delete(guest)
+  end
+
+  def send_guest_to_room(guest, room)
+    remove_guest(guest)
+    room.check_in(guest)
+  end
+
 end
