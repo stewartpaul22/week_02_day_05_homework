@@ -4,7 +4,7 @@ class Venue
 
   def initialize(name, guest_list, room_list)
     @name = name
-    @venue_guest_list = []
+    @venue_guest_list = [] # holding area for guests
     @room_list = []
     @till = 0.00
     @entry_fee = 5.00
@@ -31,12 +31,6 @@ class Venue
       remove_guest(guest)
       room.check_in(guest)
     else
-      # for alt_room in @room_list
-      #   if !alt_room.is_room_full()
-      #     remove_guest(guest)
-      #     alt_room.check_in(guest)
-      #   end
-      # end
       @room_list.each do |alt_room|
         if !alt_room.is_room_full()
           remove_guest(guest)
@@ -52,6 +46,14 @@ class Venue
 
   def add_room_to_venue(room)
     @room_list << room
+  end
+
+  def total_guest_count()
+    total_guests = 0
+    @room_list.each do |room|
+      total_guests += room.guest_count
+    end
+    return total_guests
   end
 
 end

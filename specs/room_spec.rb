@@ -57,14 +57,6 @@ class TestRoom < MiniTest::Test
     assert_equal(true, @room1.is_room_full())
   end
   # 9
-  # def test_add_guest_to_another_room
-  #   # if a guest's chosen room is full, add cust to next room that is not full
-  #   20.times { @room1.check_in(@guest1)}
-  #   10.times { @room2.check_in(@guest1)}
-  #   #confirm guest's current location
-  #
-  #   assert_equal(@room2, #guest_current_location)
-  #
-  # end
+  
 
 end
