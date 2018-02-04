@@ -9,9 +9,9 @@ class TestVenue < MiniTest::Test
   def setup
     @guest1 = Guest.new("Beavis", 50.00, @song1)
     @guest2 = Guest.new("Butthead", 40.00, @song2)
-    @room1 = Room.new("Headbanger's Ball", "metal", @guest_list1, @playlist)
-    @room2 = Room.new("Motor City", "motown and soul", @guest_list1, @playlist)
-    @room3 = Room.new("CheeseFest", "pop", @guest_list1, @playlist)
+    @room1 = Room.new("Headbanger's Ball", "metal")
+    @room2 = Room.new("Motor City", "motown and soul")
+    @room3 = Room.new("CheeseFest", "pop")
     @venue = Venue.new("FAME OR SHAME", @guest_list, @room_list)
   end
   # 1
@@ -46,7 +46,6 @@ class TestVenue < MiniTest::Test
   end
   #7
   def test_allocate_guest_to_room__space_available
-    puts @venue.room_count
     # arrange
     @venue.admit_guest(@guest1)
     # act

@@ -2,7 +2,7 @@ class Room
 
   attr_reader :name, :genre, :room_guest_list
 
-  def initialize(name, genre, room_guest_list, playlist)
+  def initialize(name, genre)
     @name = name
     @genre = genre
     @room_guest_list = []

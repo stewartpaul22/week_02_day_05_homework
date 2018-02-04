@@ -16,8 +16,8 @@ class TestRoom < MiniTest::Test
     @room_guest_list1 = [@guest1, @guest2]
     @playlist = [@song1, @song2, @song3]
     # room: name, genre, room_guest_list, playlist, guest_limit
-    @room1 = Room.new("Headbanger's Ball", "metal", @room_guest_list1, @playlist)
-    @room2 = Room.new("Motor City", "motown and soul", @room_guest_list1, @playlist)
+    @room1 = Room.new("Headbanger's Ball", "metal")
+    @room2 = Room.new("Motor City", "motown and soul")
   end
   # 1
   def test_has_name
@@ -57,6 +57,14 @@ class TestRoom < MiniTest::Test
     assert_equal(true, @room1.is_room_full())
   end
   # 9
-  
+  # def test_guest_fav_song_on_playlist
+  #   # arrange
+  #   @room1.add_song_to_playlist(@song1)
+  #   @room1.check_in(@guest1)
+  #   # act
+  #
+  #   # assert
+  #   assert_equal("YAS!", )
+  # end
 
 end
