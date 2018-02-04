@@ -42,11 +42,10 @@ class TestGuest < MiniTest::Test
     # assert
     assert_equal("YAS!", response)
   end
-
-
-  # def test_confirm_guest_location
-  #   assert_equal()
-  # end
+  # 7
+  def test_get_guest_location
+    assert_equal(nil, @guest1.location)
+  end
 
   ### add a test to check guest's location i.e. in a room or venue_guest_list ###
 
