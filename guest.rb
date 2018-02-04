@@ -17,4 +17,12 @@ class Guest
     @wallet -= amount
   end
 
+  def cheer()
+    return "YAS!"
+  end
+
+  def fav_song_on_playlist(room)
+    cheer() if room.playlist.include?(@fav_song)
+  end
+
 end
